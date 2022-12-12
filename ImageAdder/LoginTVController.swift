@@ -30,6 +30,7 @@ class LoginTVController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         passwordTextField.text = nil
+        passwordToConfirm = nil
     }
     
     
