@@ -7,23 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A450ED4A2945FD26005E3337 /* SettingsTVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A450ED492945FD26005E3337 /* SettingsTVController.swift */; };
+		A450ED4C294744BC005E3337 /* TextPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A450ED4B294744BC005E3337 /* TextPicker.swift */; };
+		A450ED4E29477C65005E3337 /* NewPasswordTVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A450ED4D29477C65005E3337 /* NewPasswordTVController.swift */; };
+		A456D9A82944C59200B2C49F /* LoginTVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456D9A72944C59200B2C49F /* LoginTVController.swift */; };
+		A456D9AD2944D71500B2C49F /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = A456D9AC2944D71500B2C49F /* KeychainAccess */; };
 		A4DD31422940D24600ABCA48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DD31412940D24600ABCA48 /* AppDelegate.swift */; };
 		A4DD31442940D24600ABCA48 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DD31432940D24600ABCA48 /* SceneDelegate.swift */; };
 		A4DD314B2940D24700ABCA48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4DD314A2940D24700ABCA48 /* Assets.xcassets */; };
 		A4DD314E2940D24700ABCA48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4DD314C2940D24700ABCA48 /* LaunchScreen.storyboard */; };
-		A4DD31562940D5A600ABCA48 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DD31552940D5A600ABCA48 /* TableViewController.swift */; };
+		A4DD31562940D5A600ABCA48 /* ProfileTVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DD31552940D5A600ABCA48 /* ProfileTVController.swift */; };
 		A4DD31582940D79F00ABCA48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4DD31572940D79F00ABCA48 /* Main.storyboard */; };
 		A4DD315A2942509A00ABCA48 /* HomeTask.rtf in Resources */ = {isa = PBXBuildFile; fileRef = A4DD31592942509A00ABCA48 /* HomeTask.rtf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A450ED492945FD26005E3337 /* SettingsTVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTVController.swift; sourceTree = "<group>"; };
+		A450ED4B294744BC005E3337 /* TextPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPicker.swift; sourceTree = "<group>"; };
+		A450ED4D29477C65005E3337 /* NewPasswordTVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordTVController.swift; sourceTree = "<group>"; };
+		A456D9A72944C59200B2C49F /* LoginTVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTVController.swift; sourceTree = "<group>"; };
 		A4DD313E2940D24600ABCA48 /* ImageAdder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageAdder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4DD31412940D24600ABCA48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4DD31432940D24600ABCA48 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A4DD314A2940D24700ABCA48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A4DD314D2940D24700ABCA48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A4DD314F2940D24700ABCA48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A4DD31552940D5A600ABCA48 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		A4DD31552940D5A600ABCA48 /* ProfileTVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTVController.swift; sourceTree = "<group>"; };
 		A4DD31572940D79F00ABCA48 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A4DD31592942509A00ABCA48 /* HomeTask.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = HomeTask.rtf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -33,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A456D9AD2944D71500B2C49F /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,9 +68,13 @@
 		A4DD31402940D24600ABCA48 /* ImageAdder */ = {
 			isa = PBXGroup;
 			children = (
+				A450ED4B294744BC005E3337 /* TextPicker.swift */,
+				A450ED4D29477C65005E3337 /* NewPasswordTVController.swift */,
+				A450ED492945FD26005E3337 /* SettingsTVController.swift */,
+				A4DD31552940D5A600ABCA48 /* ProfileTVController.swift */,
+				A456D9A72944C59200B2C49F /* LoginTVController.swift */,
 				A4DD31412940D24600ABCA48 /* AppDelegate.swift */,
 				A4DD31432940D24600ABCA48 /* SceneDelegate.swift */,
-				A4DD31552940D5A600ABCA48 /* TableViewController.swift */,
 				A4DD31572940D79F00ABCA48 /* Main.storyboard */,
 				A4DD314A2940D24700ABCA48 /* Assets.xcassets */,
 				A4DD314C2940D24700ABCA48 /* LaunchScreen.storyboard */,
@@ -86,6 +100,9 @@
 			dependencies = (
 			);
 			name = ImageAdder;
+			packageProductDependencies = (
+				A456D9AC2944D71500B2C49F /* KeychainAccess */,
+			);
 			productName = ImageAdder;
 			productReference = A4DD313E2940D24600ABCA48 /* ImageAdder.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +131,9 @@
 				Base,
 			);
 			mainGroup = A4DD31352940D24600ABCA48;
+			packageReferences = (
+				A456D9AB2944D71500B2C49F /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+			);
 			productRefGroup = A4DD313F2940D24600ABCA48 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -142,9 +162,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A450ED4C294744BC005E3337 /* TextPicker.swift in Sources */,
+				A450ED4E29477C65005E3337 /* NewPasswordTVController.swift in Sources */,
+				A450ED4A2945FD26005E3337 /* SettingsTVController.swift in Sources */,
 				A4DD31422940D24600ABCA48 /* AppDelegate.swift in Sources */,
+				A456D9A82944C59200B2C49F /* LoginTVController.swift in Sources */,
 				A4DD31442940D24600ABCA48 /* SceneDelegate.swift in Sources */,
-				A4DD31562940D5A600ABCA48 /* TableViewController.swift in Sources */,
+				A4DD31562940D5A600ABCA48 /* ProfileTVController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +378,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A456D9AB2944D71500B2C49F /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A456D9AC2944D71500B2C49F /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A456D9AB2944D71500B2C49F /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A4DD31362940D24600ABCA48 /* Project object */;
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ProfileTVController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     private lazy var imageCounter: Int = 0
     
@@ -15,24 +15,36 @@ class TableViewController: UITableViewController, UIImagePickerControllerDelegat
     
     private var files: [String] {
         get {
-            (try? FileManager.default.contentsOfDirectory(atPath: pathToDocumentsFolder)) ?? []
+            var filesSorted: [String]
+            do {
+                filesSorted = try FileManager.default.contentsOfDirectory(atPath: pathToDocumentsFolder)
+            }
+            catch {
+                filesSorted = []
+                return filesSorted
+            }
+            return sortFiles(files: filesSorted)
         }
         set {}
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Documents"
     }
     
-    @IBAction func addPhotoButton(_ sender: Any) {
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
+    
+    @IBAction func addPhotoButtonPushed(_ sender: Any) {
         let imagePickerVC = UIImagePickerController()
             imagePickerVC.sourceType = .photoLibrary
             imagePickerVC.delegate = self
             present(imagePickerVC, animated: true)
     }
-
+    
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
@@ -44,25 +56,45 @@ class TableViewController: UITableViewController, UIImagePickerControllerDelegat
             }
         }
     
+    
     func saveImageToDocumentDirectory(image: UIImage) {
-        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         
-        let fileName = "image_" + "\(imageCounter)" + ".jpg"
-        imageCounter += 1
-        
-        let fileURL = documentsDirectory.appendingPathComponent(fileName)
-        print("file path: \(fileURL)")
-
-                
-        if let data = image.jpegData(compressionQuality: 1.0), !FileManager.default.fileExists(atPath: fileURL.path) {
-            do {
-                print("file saved: \(fileName)")
-                try data.write(to: fileURL)
-            } catch {
-                print("error saving file:", error)
+        TextPicker.defaultPicker.showPicker(in: self) { text in
+            
+            let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+            let fileURL = documentsDirectory.appendingPathComponent(text)
+            //        print("file URL: \(fileURL)")
+            
+            if let data = image.jpegData(compressionQuality: 1.0), !FileManager.default.fileExists(atPath: fileURL.path) {
+                do {
+                    print("file saved: \(text)")
+                    try data.write(to: fileURL)
+                } catch {
+                    print("error saving file:", error)
+                }
             }
+            self.tableView.reloadData()
         }
     }
+    
+    
+    private func sortFiles(files: [String]) -> [String] {
+        
+        let order = UserDefaults.standard.string(forKey: "order")
+        let filesSorted: [String]
+        if  order == "Alphabetically" {
+            filesSorted = files.sorted { (lhs: String, rhs: String) -> Bool in
+                return lhs.compare(rhs, options: [.numeric], locale: .current) == .orderedAscending
+            }
+        } else {
+            filesSorted = files.sorted { (lhs: String, rhs: String) -> Bool in
+                return lhs.compare(rhs, options: [.numeric], locale: .current) == .orderedDescending
+            }
+        }
+        return filesSorted
+//        tableView.reloadData()
+    }
+    
 
     // MARK: - Table view data source
 
@@ -79,6 +111,7 @@ class TableViewController: UITableViewController, UIImagePickerControllerDelegat
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
         let fullPath = pathToDocumentsFolder + "/" + files[indexPath.row]
+//        print(fullPath)
         let image    = UIImage(contentsOfFile: fullPath)
         cell.imageView?.image = image
         
@@ -107,31 +140,5 @@ class TableViewController: UITableViewController, UIImagePickerControllerDelegat
             } else if editingStyle == .insert {
             }
     }
-    
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
